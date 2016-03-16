@@ -33,6 +33,8 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-thymeleaf"
     compile "org.springframework.boot:spring-boot-devtools"
     compile "org.springframework:spring-webmvc"
+    compile 'org.mybatis:mybatis:3.3.1'
+    compile 'postgresql:postgresql:9.1-901.jdbc4'
 
     testCompile("junit:junit")
     testCompile('org.powermock:powermock-module-junit4:1.6.4')
