@@ -28,10 +28,15 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile "org.springframework.boot:spring-boot-starter"
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-thymeleaf"
     compile "org.springframework.boot:spring-boot-devtools"
-    testCompile "junit:junit"
+    compile "org.springframework:spring-webmvc"
+
+    testCompile("junit:junit")
+    testCompile('org.powermock:powermock-module-junit4:1.6.4')
+    testCompile('org.mockito:mockito-all:1.10.19')
 }
 
 task wrapper(type: Wrapper) {
