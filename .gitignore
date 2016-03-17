@@ -5,3 +5,5 @@ out/
 Jigsaw.iml
 Jigsaw.ipr
 Jigsaw.iws
+development.properties
+database.properties
