@@ -10,14 +10,10 @@
 -- BigInteger and String compatible fields respectively.
 
 CREATE TABLE ${changelog} (
-ID NUMERIC(20,0) NOT NULL,
+ID NUMERIC(20,0) PRIMARY KEY,
 APPLIED_AT VARCHAR(25) NOT NULL,
 DESCRIPTION VARCHAR(255) NOT NULL
 );
-
-ALTER TABLE ${changelog}
-ADD CONSTRAINT PK_${changelog}
-PRIMARY KEY (id);
 
 -- //@UNDO
 
