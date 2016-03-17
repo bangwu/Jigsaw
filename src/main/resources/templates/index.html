@@ -1,12 +1,29 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <title>Getting Started: Serving Web Content</title>
-    <link rel="stylesheet" href="/css/index.css" />
+    <link href="/css/vender/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/vender/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/index.css"/>
+    <script type="application/javascript" src="/js/vender/jquery-2.2.1.min.js"></script>
+    <script type="application/javascript" src="/js/vender/bootstrap.min.js"></script>
+    <script type="application/javascript" src="/js/vender/angular.min.js"></script>
+    <script type="application/javascript" src="/js/vender/angular-route.min.js"></script>
     <script type="application/javascript" src="/js/index.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="application/javascript" src="/js/routes.js"></script>
+    <script type="application/javascript" src="/js/controller/UserController.js"></script>
+    <script type="application/javascript" src="/js/service/UserService.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+<body ng-app="app">
+<header>
+    <div ng-include="header.html"></div>
+</header>
+<section>
+    <div ng-view="true"></div>
+</section>
+<footer>
+    <div ng-include="footer.html"></div>
+</footer>
 </body>
 </html>

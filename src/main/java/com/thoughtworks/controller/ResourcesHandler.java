@@ -14,6 +14,7 @@ public class ResourcesHandler extends WebMvcAutoConfiguration.WebMvcAutoConfigur
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**").addResourceLocations("/static/", "classpath:/static/css/");
         registry.addResourceHandler("/js/**").addResourceLocations("/static/", "classpath:/static/js/");
+        registry.addResourceHandler("/*.html").addResourceLocations("/template/", "classpath:/template/");
         super.addResourceHandlers(registry);
     }
 }
