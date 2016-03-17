@@ -3,10 +3,16 @@ package com.thoughtworks.controller;
 import com.thoughtworks.model.User;
 import com.thoughtworks.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -21,11 +27,14 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
-    public String login(@ModelAttribute User user) {
+    public ResponseEntity login(@RequestBody User user) {
         boolean validateResult = userService.validateUser(user);
+        Map result = new HashMap();
         if (validateResult){
-            return "index";
+            result.put("STATUS", "OK");
+            return new ResponseEntity(result, HttpStatus.OK);
         }
-        return "login";
+        result.put("STATUS", "ERROR");
+        return new ResponseEntity(result, HttpStatus.OK);
     }
 }

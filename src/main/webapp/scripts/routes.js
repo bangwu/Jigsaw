@@ -1,8 +1,11 @@
 module.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/user/loginPage', {
-            templateUrl: '/template/login.html',
-            controller: 'userLoginCtrl'
+            templateUrl: '/login.html',
+            controller: 'UserController'
+        })
+        .when('/', {
+            templateUrl: '/home.html'
         })
         .otherwise({redirectTo: '/'});
 }]);

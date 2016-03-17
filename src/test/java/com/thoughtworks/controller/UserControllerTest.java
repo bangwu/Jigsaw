@@ -7,6 +7,11 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -42,14 +47,17 @@ public class UserControllerTest {
         User user = new User();
         user.setUsername("username");
         user.setPassword("right");
+        Map hashMap = new HashMap();
+        hashMap.put("STATUS", "ERROR");
 
         when(userService.validateUser(user)).thenReturn(false);
 
         //When
-        String login = userController.login(user);
+        ResponseEntity login = userController.login(user);
 
         //Then
-        assertEquals("login", login);
+        assertEquals(HttpStatus.OK, login.getStatusCode());
+        assertEquals(hashMap, login.getBody());
 
     }
 
@@ -59,13 +67,16 @@ public class UserControllerTest {
         User user = new User();
         user.setUsername("username")
                 .setPassword("password");
+        Map hashMap = new HashMap();
+        hashMap.put("STATUS", "OK");
 
         when(userService.validateUser(user)).thenReturn(true);
 
         //When
-        String login = userController.login(user);
+        ResponseEntity login = userController.login(user);
 
         //Then
-        assertEquals("index", login);
+        assertEquals(HttpStatus.OK, login.getStatusCode());
+        assertEquals(hashMap, login.getBody());
     }
 }
