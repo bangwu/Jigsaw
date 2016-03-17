@@ -5,5 +5,5 @@ out/
 Jigsaw.iml
 Jigsaw.ipr
 Jigsaw.iws
-development.properties
-database.properties
+src/main/migration/environments/development.properties
+src/main/webapp/db/database.properties
