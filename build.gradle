@@ -14,6 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: "jacoco"
 
 jar {
     baseName = 'Jigsaw'
@@ -41,6 +42,10 @@ dependencies {
     testCompile 'org.mockito:mockito-all:1.10.19'
 }
 
+build.dependsOn jacocoTestReport
+jacocoTestReport.dependsOn test
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
+
