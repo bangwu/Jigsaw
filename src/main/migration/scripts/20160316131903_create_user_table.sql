@@ -6,6 +6,8 @@ CREATE TABLE Users(
   password VARCHAR(255) NOT NULL
 )
 
+INSERT INTO users(username, password) VALUES ('test', 'password')
+
 
 -- //@UNDO
 -- SQL to undo the change goes here.

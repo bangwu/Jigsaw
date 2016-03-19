@@ -6,4 +6,4 @@ Jigsaw.iml
 Jigsaw.ipr
 Jigsaw.iws
 src/main/migration/environments/development.properties
-src/main/webapp/db/database.properties
+src/main/resources/db/database.properties
