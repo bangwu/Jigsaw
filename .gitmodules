@@ -1,0 +1,3 @@
+[submodule "firstapp"]
+	path = firstapp
+	url = git@github.com:bangwu/firstapp.git
